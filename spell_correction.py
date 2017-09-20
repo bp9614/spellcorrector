@@ -25,6 +25,8 @@ def best_fit(dict_path, test_path, sample_path, output_path,
                             else (word, 0) for word
                             in [perm for perm in perms if perm in dictionary]])
 
+            if item in dictionary:
+                print(item, "is a real word.", file=output)
             print('Possible words for ', item, ': ', sep='', end='',
                   file=output)
             if words:
