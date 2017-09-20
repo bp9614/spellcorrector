@@ -1,0 +1,1 @@
+simple spell corrector (even for correctly spelled words)
