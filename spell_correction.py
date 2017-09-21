@@ -4,7 +4,7 @@ from collections import Counter
 
 while True:
     try:
-        edit_dist = int(input("Enter edit distance (as an integer): "))
+        edit_dist = int(input("Enter the edit distance (integer): "))
     except ValueError:
         continue
     else:
