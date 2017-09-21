@@ -3,13 +3,22 @@ import re
 from collections import Counter
 
 
-def best_fit(dict_path, test_path, sample_path, output_path,
-             dict_encoding=None, test_encoding=None, sample_encoding=None,
-             output_encoding=None, edit_dist=1):
-    with open(dict_path, 'r', encoding=dict_encoding) as dict_file,\
-            open(test_path, 'r', encoding=test_encoding) as test_file,\
-            open(sample_path, 'r', encoding=sample_encoding) as sample_file,\
-            open(output_path, 'w', encoding=output_encoding) as output:
+def suggestions(string, dictionary, edit_dist=1):
+    return [perm for perm in permutations.get_permutations(string, edit_dist)
+            if perm in dictionary]
+
+
+def best_fit(string, dictionary, sample, edit_dist=1):
+    return max([(perm, sample[perm]) if perm in sample else (perm, 0)
+                for perm in permutations.get_permutations(string, edit_dist)
+                if perm in dictionary], key=lambda x: x[1])[0]
+
+
+def sample_test(edit_dist=1):
+    with open('sample/dictionary.txt', 'r') as dict_file,\
+            open('sample/test.txt', 'r') as test_file,\
+            open('sample/sample.txt', 'r', encoding='utf8') as sample_file,\
+            open('sample/output.txt', 'w') as output:
         dictionary = {word.lower() for word
                       in filter(None, dict_file.read().splitlines())}
         test = [word.lower() for line in test_file.read().splitlines()
@@ -21,12 +30,12 @@ def best_fit(dict_path, test_path, sample_path, output_path,
             perms = permutations.get_permutations(item, edit_dist)
             include_apostrophes(perms)
 
-            words = sorted([(word, sample[word]) if word in sample
-                            else (word, 0) for word
-                            in [perm for perm in perms if perm in dictionary]])
+            words = sorted([(perm, sample[perm]) if perm in sample
+                            else (perm, 0) for perm in perms
+                            if perm in dictionary])
 
             if item in dictionary:
-                print(item, "is a real word.", file=output)
+                print(item.capitalize(), "is a real word.", file=output)
             print('Possible words for ', item, ': ', sep='', end='',
                   file=output)
             if words:
@@ -43,8 +52,4 @@ def include_apostrophes(words):
 
 
 if __name__ == '__main__':
-    # d = input('Enter dictionary file path: ')
-    # t = input('Enter test file path: ')
-    # s = input('Enter sample file path: ')
-    best_fit('sample/dictionary.txt', 'sample/test.txt', 'sample/sample.txt',
-             'sample/output.txt', sample_encoding='utf8')
+    sample_test(edit_dist=1)
