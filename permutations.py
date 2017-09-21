@@ -22,10 +22,10 @@ def transposition(words):
 
 
 def get_permutations(word, edit_dist):
-    permutations = {word}
+    perms = {word}
 
     for edit in range(edit_dist):
-        permutations = (insertion(permutations) | deletion(permutations) |
-                        substitution(permutations) | transposition(permutations))
+        perms = (insertion(perms) | deletion(perms) | substitution(perms) |
+                 transposition(perms))
 
-    return permutations
+    return perms
