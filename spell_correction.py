@@ -58,7 +58,8 @@ if __name__ == '__main__':
                             else (perm, 0) for perm in perms])
 
             if item in dictionary:
-                print('"', item.capitalize(), '" is a real word.', sep='', file=output)
+                print('"', item.capitalize(), '" is a real word.', sep='',
+                      file=output)
 
             if words:
                 print('Possible words for "', item, '": ', sep='', end='',
