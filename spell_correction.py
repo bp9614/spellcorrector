@@ -36,7 +36,7 @@ with open('sample/dictionary.txt', 'r') as dict_file:
 if __name__ == '__main__':
     while True:
         try:
-            edit_dist = int(input("Enter the edit distance (integer): "))
+            edit_dist = int(input('Enter the edit distance (integer): '))
         except ValueError:
             continue
         else:
@@ -58,14 +58,14 @@ if __name__ == '__main__':
                             else (perm, 0) for perm in perms])
 
             if item in dictionary:
-                print(item.capitalize(), "is a real word.", file=output)
+                print('"', item.capitalize(), '" is a real word.', sep='', file=output)
 
             if words:
-                print('Possible words for ', item, ': ', sep='', end='',
+                print('Possible words for "', item, '": ', sep='', end='',
                       file=output)
                 print(', '.join([w for w,_ in words]), file=output)
                 print('Suggested word:', max(words, key=lambda x: x[1])[0],
                       end='\n\n', file=output)
             else:
-                print('No possible words found for ', item, '.', sep='',
+                print('No possible words found for "', item, '".', sep='',
                       end='\n\n', file=output)
