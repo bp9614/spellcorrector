@@ -57,16 +57,19 @@ if __name__ == '__main__':
             words = sorted([(perm, sample[perm]) if perm in sample
                             else (perm, 0) for perm in perms])
 
-            if item in dictionary:
-                print('"', item.capitalize(), '" is a real word.', sep='',
-                      file=output)
-
             if words:
-                print('Possible words for "', item, '": ', sep='', end='',
+                if item in dictionary:
+                    print('"', item.capitalize(), '" is a real word.', sep='',
+                          file=output)
+                    print('Possible other', end=' ', file=output)
+                else:
+                    print('Possible', end=' ', file=output)
+                print('words for "', item, '": ', sep='', end='',
                       file=output)
-                print(', '.join([w for w,_ in words]), file=output)
+                print(', '.join([w for w,_ in words if w != item]),
+                      file=output)
                 print('Suggested word:', max(words, key=lambda x: x[1])[0],
                       end='\n\n', file=output)
             else:
-                print('No possible words found for "', item, '".', sep='',
+                print('No real words found for "', item, '".', sep='',
                       end='\n\n', file=output)
