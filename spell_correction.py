@@ -52,19 +52,15 @@ if __name__ == '__main__':
                          in filter(None, re.split("[^A-Za-z']", line)))
 
         for item in test:
-            perms = with_apostrophe(item, edit_dist)
+            if item in dictionary:
+                continue
 
             words = sorted([(perm, sample[perm]) if perm in sample
-                            else (perm, 0) for perm in perms])
+                            else (perm, 0) for perm
+                            in suggestions(item, edit_dist)])
 
             if words:
-                if item in dictionary:
-                    print('"', item.capitalize(), '" is a real word.', sep='',
-                          file=output)
-                    print('Possible other', end=' ', file=output)
-                else:
-                    print('Possible', end=' ', file=output)
-                print('words for "', item, '": ', sep='', end='',
+                print('Possible words for "', item, '": ', sep='', end='',
                       file=output)
                 print(', '.join([w for w,_ in words if w != item]),
                       file=output)
