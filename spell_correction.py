@@ -62,7 +62,7 @@ if __name__ == '__main__':
             if words:
                 print('Possible words for "', item, '": ', sep='', end='',
                       file=output)
-                print(', '.join([w for w,_ in words if w != item]),
+                print(', '.join([w for w,_ in words]),
                       file=output)
                 print('Suggested word:', max(words, key=lambda x: x[1])[0],
                       end='\n\n', file=output)
