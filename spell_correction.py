@@ -52,10 +52,9 @@ if __name__ == '__main__':
                          in filter(None, re.split("[^A-Za-z']", line)))
 
         for item in test:
-            perms = with_apostrophe(item, edit_dist)
-
             words = sorted([(perm, sample[perm]) if perm in sample
-                            else (perm, 0) for perm in perms])
+                            else (perm, 0) for perm
+                            in with_apostrophe(item, edit_dist)])
 
             if words:
                 if item in dictionary:
