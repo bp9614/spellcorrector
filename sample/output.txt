@@ -1,34 +1,14 @@
-the is a real word.
-Possible words for the: he, she, te, tee, th, the, thea, thee, them, then, thew, they, tho, thu, thy, tie, toe, tue, tye
-Suggested word: the
-
-Possible words for quikc: quick
+Possible words for "quikc": quick
 Suggested word: quick
 
-brown is a real word.
-Possible words for brown: blown, brawn, broun, brow, brow's, brown, browne, browns, browny, brows, crown, drown, frown, grown
-Suggested word: grown
-
-Possible words for fo: co, do, f's, fl, flo, fm, fob, foe, fog, fop, for, fou, fox, fro, ft, go, ho, io, jo, lo, mo, no, of, so, to, ufo
+Possible words for "fo": co, do, fl, flo, fm, fob, foe, fog, fop, for, fou, fox, fro, ft, go, ho, io, jo, lo, mo, no, of, so, to, ufo
 Suggested word: to
 
-Possible words for jumpss: jumps
+Possible words for "jumpss": jumps
 Suggested word: jumps
 
-over is a real word.
-Possible words for over: aver, cover, dover, ever, hover, lover, mover, oder, omer, oner, oven, over, overs, overt, oyer, rover, tver
-Suggested word: over
-
-Possible words for tbe: abe, be, te, tee, the, tie, toe, tube, tue, tye
+Possible words for "tbe": abe, be, te, tee, the, tie, toe, tube, tue, tye
 Suggested word: the
 
-lazy is a real word.
-Possible words for lazy: hazy, lacy, lady, laky, lay, laze, lazy, mazy
-Suggested word: lady
-
-dog is a real word.
-Possible words for dog: bog, cog, dag, dig, do, doc, dod, doe, dog, dog's, doge, dogs, dogy, doh, dol, dom, don, dong, dor, dos, dot, doug, dow, dug, fog, gog, hog, jog, log, mog, nog, tog, wog
-Suggested word: do
-
-Possible words for covfefe: No possible words found
+No real words found for "covfefe".
 

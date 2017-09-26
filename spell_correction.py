@@ -43,18 +43,15 @@ if __name__ == '__main__':
             break
 
     with open('sample/test.txt', 'r') as test_file, \
-            open('sample/sample.txt', 'r', encoding='utf8') as sample_file, \
+            open('sample/sample.txt', 'r', encoding='utf8') as smp_file, \
             open('sample/output.txt', 'w') as output:
-        test = [word.lower() for line in test_file.read().splitlines()
-                for word in filter(None, re.split("[^A-Za-z']", line))]
-        sample = Counter(word.lower() for line
-                         in sample_file.read().splitlines() for word
-                         in filter(None, re.split("[^A-Za-z']", line)))
+        test = [word for line in test_file.read().splitlines()
+                for word in filter(None, re.split("[^a-z']", line.lower()))
+                if word not in dictionary]
+        sample = Counter(word for line in smp_file.read().splitlines() for word
+                         in filter(None, re.split("[^a-z']", line.lower())))
 
         for item in test:
-            if item in dictionary:
-                continue
-
             words = sorted([(perm, sample[perm]) if perm in sample
                             else (perm, 0) for perm
                             in suggestions(item, edit_dist)])
