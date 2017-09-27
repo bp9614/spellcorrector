@@ -3,7 +3,7 @@ import re
 from collections import Counter
 
 
-def suggestions(string: str, edit_dist=1) -> set:
+def suggestions(string: str, edit_dist: int = 1) -> set:
     """Returns a set of permutations that are in the dictionary.
 
     :param string: String to perform permutations on.
@@ -14,7 +14,7 @@ def suggestions(string: str, edit_dist=1) -> set:
             if perm in dictionary}
 
 
-def with_apostrophe(string: str, edit_dist=1) -> set:
+def with_apostrophe(string: str, edit_dist: int = 1) -> set:
     """Returns a set of real permutations including ones with apostrophes.
 
     :param string: String to perform permutations on.
