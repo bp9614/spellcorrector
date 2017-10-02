@@ -61,8 +61,8 @@ def main():
                     print('Possible', end=' ', file=output)
                 print('words for "', item, '": ', sep='', end='',
                       file=output)
-                print(', '.join([w for w,_ in words if w != item]),
-                      file=output)
+                print(', '.join([(w, count).__str__() for w, count in words
+                                 if w != item]), file=output)
                 print('Suggested word:', max(words, key=lambda x: x[1])[0],
                       end='\n\n', file=output)
             else:
