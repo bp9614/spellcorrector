@@ -29,11 +29,7 @@ def with_apostrophe(string: str, edit_dist: int = 1) -> set:
     return {perm for perm in perms if perm in dictionary}
 
 
-with open('sample/dictionary.txt', 'r') as dict_file:
-    dictionary = {word.lower() for word
-                  in filter(None, dict_file.read().splitlines())}
-
-if __name__ == '__main__':
+def main():
     while True:
         try:
             edit_dist = int(input('Enter the edit distance (integer): '))
@@ -72,3 +68,11 @@ if __name__ == '__main__':
             else:
                 print('No real words found for "', item, '".', sep='',
                       end='\n\n', file=output)
+
+
+with open('sample/dictionary.txt', 'r') as dict_file:
+    dictionary = {word.lower() for word
+                  in filter(None, dict_file.read().splitlines())}
+
+if __name__ == '__main__':
+    main()
